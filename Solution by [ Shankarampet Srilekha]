@@ -1,7 +1,6 @@
-# May2023
-Data Packet Corruption Detection
 #include <stdint.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 #define MAX_PACKET_DATA_LENGTH (50)
 
 typedef struct data_packet_t {
@@ -29,7 +28,7 @@ uint16_t calculate_crc(const uint8_t* data, uint8_t length) {
 
     return crc;
 }
-
+int main(){
 // Function to check if a data packet is corrupted
 int is_packet_corrupted(const data_packet_t* packet) {
     // Calculate the CRC for the packet's data
@@ -43,4 +42,5 @@ int is_packet_corrupted(const data_packet_t* packet) {
         // CRC does not match, packet is corrupted
         return 1;
     }
+  }
 }
